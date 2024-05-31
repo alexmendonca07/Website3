@@ -48,6 +48,7 @@ function updateProgress(e) {
         } else {
             songIndex += 1
         }
+        loadSong()
     }
 }
 
@@ -73,17 +74,21 @@ audio.addEventListener('timeupdate', updateProgress)
 progressContainer.addEventListener('click', setProgress)
 
 nextBtn.addEventListener('click', () => {
+    console.log('click right')
     if (songIndex == 2) {
         songIndex = 0
     } else {
         songIndex += 1
     }
+    loadSong(songs[songIndex])
 })
 
 prevBtn.addEventListener('click', () => {
+    console.log('click left')
     if (!(songIndex == 0)) {
         songIndex -= 1
     } else {
         songIndex = 2
     }
+    loadSong(songs[songIndex])
 })
